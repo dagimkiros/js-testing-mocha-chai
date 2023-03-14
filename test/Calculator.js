@@ -1,0 +1,30 @@
+//load chai assertion library
+const chai = require("chai");
+const expect = chai.expect;
+const asserttype = require('chai-asserttype');
+chai.use(asserttype);
+
+//load calculator code
+var Calculator = require("../Calculator");
+var calc = new Calculator();
+describe("Calculator Tests", function() {
+  it("Adds 1 and 2", function() {
+    expect(calc.add(1, 2)).to.be.equal(3);
+  });
+  
+  it("Add Allows no parameters",function(){
+    expect(calc.add()).to.be.equal(0);
+  });
+
+  it("Subtract: Six - Three", function() {
+    expect(calc.subtract(6, 3)).to.be.equal(3);
+  });
+
+  it("Multiply: Three times Seven", function() {
+    expect(calc.multiply(3, 7)).to.be.equal(21);
+  });
+
+  it("Divide: Six divided by Three", function() {
+    expect(calc.divide(6, 3)).to.be.equal(2);
+  });
+});
